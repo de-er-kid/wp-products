@@ -1,0 +1,17 @@
+/* Style the "Featured" column */
+.wbthnk-product-featured {
+    text-align: center;
+}
+.wbthnk-product-featured img {
+    max-width: 50px;
+    height: auto;
+}
+.wbthnk-featured::before {
+    color: #f5c13d!important;
+}
+.wbthnk-product-featured .wbthnk-featured-action {
+    cursor: pointer;
+}
+.wbthnk-product-featured .wbthnk-featured-action:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,25 @@
+.taxonomy-thumbnail-preview {
+    display: block;
+    max-width: 50px;
+    max-height: 50px;
+    margin-bottom: 10px;
+}
+
+img#taxonomy_thumbnail_preview {
+    display: block;
+    max-width: 100px;
+    max-height: 100px;
+    margin-bottom: 10px;
+}
+
+.taxonomy_thumbnail_button {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+td.taxonomy-image.column-taxonomy-image img {
+    display: block;
+    max-width: 50px;
+    max-height: 50px;
+    margin-bottom: 10px;
+}

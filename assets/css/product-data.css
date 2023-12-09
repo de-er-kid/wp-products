@@ -1,0 +1,41 @@
+.pricing {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pricing-row {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+}
+
+.pricing-label {
+    flex-basis: 40%;
+    margin-right: 5%;
+    text-align: left;
+}
+
+.pricing-field {
+    flex-basis: 55%;
+}
+
+.pricing-field input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.pricing-field input:focus {
+    outline: none;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 255, 0.3);
+}
+
+.ui-datepicker-calendar {
+    background-color: #fff;
+    border: 1px solid #f6f6f6;
+    border-radius: 3px;
+    padding: 10px;
+}
