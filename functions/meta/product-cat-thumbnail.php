@@ -76,7 +76,7 @@ function custom_taxonomy_column_content( $content, $column, $term_id ) {
     if ( 'taxonomy-image' === $column ) {
         $thumbnail_id = get_term_meta( $term_id, '_thumbnail_id', true );
         if ( $thumbnail_id ) {
-            $image = wp_get_attachment_image_src( $thumbnail_id, 'thumbnail' );
+            $image = wp_get_attachment_image_src( $thumbnail_id, 'full' );
             if ( $image ) {
                 $content = '<img src="' . esc_url( $image[0] ) . '" alt="' . esc_attr__( 'Category Image', 'wp-products-by-wbthnk' ) . '" />';
             }
