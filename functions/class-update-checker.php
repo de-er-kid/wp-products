@@ -32,16 +32,18 @@ class WP_Products_Update_Checker {
             return $transient;
         }
 
+        // Strip the 'v' from version
         $latest_version = str_replace('v', '', $release['tag_name']);
-        $current_version = get_plugin_data($this->plugin_file)['Version'];
+        $plugin_data = get_plugin_data($this->plugin_file);
+        $current_version = $plugin_data['Version'];
 
         if (version_compare($latest_version, $current_version, '>')) {
             $transient->response[$this->plugin_slug] = (object) [
                 'slug'        => dirname($this->plugin_file),
                 'plugin'      => $this->plugin_file,
                 'new_version' => $latest_version,
-                'package'     => $release['zipball_url'],
-                'tested'      => '6.3', // Replace with the tested WordPress version.
+                'package'     => 'https://github.com/de-er-kid/wp-products/archive/refs/tags/v' . $latest_version . '.zip', // Ensure correct URL
+                'tested'      => '6.7.1', // Replace with the tested WordPress version.
                 'requires'    => '5.2', // Replace with the minimum required WordPress version.
             ];
         }
@@ -73,7 +75,7 @@ class WP_Products_Update_Checker {
             'version'     => str_replace('v', '', $release['tag_name']),
             'author'      => '<a href="mailto:sinan.postbox@gmail.com">Sinan</a>',
             'homepage'    => 'https://github.com/de-er-kid/wp-products',
-            'download_link' => $release['zipball_url'],
+            'download_link' => 'https://github.com/de-er-kid/wp-products/archive/refs/tags/v' . str_replace('v', '', $release['tag_name']) . '.zip',
             'requires'    => '5.2',
             'tested'      => '6.7.1',
             'sections'    => [
@@ -85,3 +87,4 @@ class WP_Products_Update_Checker {
         return $result;
     }
 }
+
