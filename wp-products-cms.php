@@ -3,7 +3,7 @@
  * Plugin Name:       WP Products
  * Plugin URI:        https://sinan.pro/plugins/wp-products
  * Description:       A minimal plugin for on the go development for an eCommerce WordPress with no bloat. This plugin only focuses on product post type, product category taxonomy & the least meta boxes needed.
- * Version:           1.2
+ * Version:           1.1
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Sinan
