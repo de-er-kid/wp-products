@@ -182,4 +182,8 @@ function get_store_currency_sign() {
 }
 
 global $store_currency_sign;
-$store_currency_sign = get_store_currency_sign();
+if ( function_exists( 'get_option' ) ) {
+    $store_currency_sign = get_store_currency_sign();
+} else {
+    $store_currency_sign = '$';
+}

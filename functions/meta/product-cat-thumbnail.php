@@ -4,20 +4,31 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 // Add the thumbnail field to the product_cat taxonomy
-function wp_taxonomy_thumbnail_field( $term ) {
+function wp_taxonomy_thumbnail_field_add( $taxonomy ) {
+    ?>
+    <div class="form-field">
+        <label for="thumbnail"><?php _e( 'Thumbnail', 'wp-products-by-wbthnk' ); ?></label>
+        <input type="hidden" id="taxonomy_thumbnail" name="taxonomy_thumbnail" class="custom_media_url" value="">
+        <button type="button" class="taxonomy_thumbnail_button button"><?php _e( 'Add Image', 'wp-products-by-wbthnk' ); ?></button>
+        <img src="" id="taxonomy_thumbnail_preview" style="max-width: 100%; display: block; margin-top: 10px;">
+    </div>
+    <?php
+}
+
+function wp_taxonomy_thumbnail_field_edit( $term ) {
     $thumbnail_id = get_term_meta( $term->term_id, '_thumbnail_id', true );
     $thumbnail_url = $thumbnail_id ? wp_get_attachment_url( $thumbnail_id ) : '';
     ?>
     <div class="form-field">
         <label for="thumbnail"><?php _e( 'Thumbnail', 'wp-products-by-wbthnk' ); ?></label>
         <input type="hidden" id="taxonomy_thumbnail" name="taxonomy_thumbnail" class="custom_media_url" value="<?php echo esc_attr( $thumbnail_id ); ?>">
-        <img src="<?php echo esc_attr( $thumbnail_url ); ?>" id="taxonomy_thumbnail_preview" style="max-width: 100%; display: block; margin-bottom: 10px;">
         <button type="button" class="taxonomy_thumbnail_button button"><?php _e( 'Add Image', 'wp-products-by-wbthnk' ); ?></button>
+        <img src="<?php echo esc_attr( $thumbnail_url ); ?>" id="taxonomy_thumbnail_preview" style="max-width: 100%; display: block; margin-top: 10px;">
     </div>
     <?php
 }
-add_action( 'product_cat_add_form_fields', 'wp_taxonomy_thumbnail_field' );
-add_action( 'product_cat_edit_form_fields', 'wp_taxonomy_thumbnail_field' );
+add_action( 'product_cat_add_form_fields', 'wp_taxonomy_thumbnail_field_add' );
+add_action( 'product_cat_edit_form_fields', 'wp_taxonomy_thumbnail_field_edit' );
 
 // Save the thumbnail field data when the taxonomy is saved
 function wp_save_taxonomy_thumbnail_field( $term_id ) {
