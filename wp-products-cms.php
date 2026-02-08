@@ -44,6 +44,7 @@ if (!defined('ABSPATH')) {
  require_once plugin_dir_path(__FILE__) . 'functions/docs.php';
  require_once plugin_dir_path(__FILE__) . 'functions/store-currency-sign.php';
 require_once plugin_dir_path( __FILE__ ) . 'functions/class-wp-products-rest-api.php';
+require_once plugin_dir_path( __FILE__ ) . 'functions/cors-support.php';
 
 
 //  require_once plugin_dir_path(__FILE__) . 'functions/.php';
